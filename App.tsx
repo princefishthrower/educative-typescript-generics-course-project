@@ -28,7 +28,7 @@ export default function App() {
             <BlogPostRenderer {...blogPost} key={blogPost.id} />
           )}
           searchLabel="Search for blog posts..."
-          searchProperties={["title"]}
+          searchProperties={["title", "description"]}
           shouldBeCaseSensitive={false}
           sortersLabel="Sort blog posts..."
           initialSortProperty="title"
@@ -48,7 +48,7 @@ export default function App() {
             />
           )}
           searchLabel="Search for image posts..."
-          searchProperties={["caption"]} // TODO in next task
+          searchProperties={["caption", "comments"]} // TODO in next task
           shouldBeCaseSensitive={false}
           sortersLabel="Sort image posts..."
           initialSortProperty="caption"

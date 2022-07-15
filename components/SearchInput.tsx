@@ -21,7 +21,10 @@ export function SearchInput(props: ISearchInputProps) {
         type="search"
         placeholder="Search..."
         aria-label="Search"
-        onChange={setSearchQueryDebounced}
+        onChange={(event) => {
+          event.persist();
+          setSearchQueryDebounced(event)
+        }}
       />
     </>
   );
