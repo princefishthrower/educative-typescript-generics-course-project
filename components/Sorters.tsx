@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { ISortProperty } from '../interfaces/ISortProperty'
+import * as React from "react";
+import { ISortProperty } from "../interfaces/ISortProperty";
 
 export interface ISortersProps<T> {
   label: string;
@@ -9,37 +9,51 @@ export interface ISortersProps<T> {
 
 export function Sorters<T>(props: ISortersProps<T>) {
   const { label, object, setSortProperty } = props;
+
+  const onChangeCheckbox = (event) => {
+    const values = event.target.value.split("-");
+    if (values.length === 2) {
+      setSortProperty({
+        property: values[0] as any,
+        isDescending: values[1] === "true",
+      });
+    }
+  };
+
   return (
     <>
       <label htmlFor="sorters" className="mt-3">
         {label}
       </label>
-      <select
-        id="sorters"
-        className="custom-select"
-        onChange={(event) => {
-          const values = event.target.value.split("-");
-          if (values.length === 2) {
-            setSortProperty({
-              property: values[0] as any,
-              isDescending: values[1] === "true",
-            });
-          }
-        }}
-      >
+
+      <div id="sorters" className="form-check">
         {Object.keys(object).map((key) => {
           return (
             <>
-              <option key={`${key}-true`} value={`${key}-true`}>
+              <input
+                onChange={(event) => onChangeCheckbox(event)}
+                className="form-check-input"
+                type="checkbox"
+                value=""
+                id={`${key}-true`}
+              />
+              <label className="form-check-label" for={`${key}-true`}>
                 Sort by '{key}' descending!
-              </option>
-              <option key={`${key}-false`} value={`${key}-false`}>
+              </label>
+              <input
+                onChange={(event) => onChangeCheckbox(event)}
+                className="form-check-input"
+                type="checkbox"
+                value=""
+                id={`${key}-false`}
+              />
+              <label className="form-check-label" for={`${key}-false`}>
                 Sort by '{key}' ascending!
-              </option>
+              </label>
             </>
           );
         })}
-      </select>
+      </div>
     </>
   );
 }
