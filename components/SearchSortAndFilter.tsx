@@ -35,14 +35,12 @@ export function SearchSortAndFilter<T>(props: ISearchSortAndFilterProps<T>) {
     shouldBeCaseSensitive,
     sortersLabel,
     initialSortProperty,
-    initialIsDescending,
     filtersLabel,
     initialFilterProperties
   } = props;
 
   const [searchQuery, setSearchQuery] = useState(initialSearchQuery);
   const [sortProperty, setSortProperty] = useState(initialSortProperty);
-  const [isDescending, setIsDescending] = useState(initialIsDescending);
   const [filterProperties, setFilterProperties] = useState(
     initialFilterProperties
   );
@@ -56,8 +54,9 @@ export function SearchSortAndFilter<T>(props: ISearchSortAndFilterProps<T>) {
       />
       <Sorters
         label={sortersLabel}
-        object={data && data.length > 0 ? data[0] : {}}
+        object={data && data.length > 0 ? data[0] : null}
         setSortProperty={(sortProperty) => setSortProperty(sortProperty)}
+        currentSortProperty={sortProperty}
       />
       <Filters
         label={filtersLabel}
