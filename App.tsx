@@ -44,7 +44,7 @@ export default function App() {
           renderItem={(imagePost) => (
             <ImagePostRenderer
               {...imagePost}
-              key={blogPost.id}
+              key={imagePost.id}
             />
           )}
           searchLabel="Search for image posts..."

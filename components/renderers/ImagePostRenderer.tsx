@@ -20,12 +20,13 @@ export function ImagePostRenderer(props: IImagePost) {
   return (
     <div className="col-12 p-3">
       <div className="card">
-        <img src={imageUrl} class="card-img-top" alt={caption} />
+        <img src={imageUrl} className="card-img-top" alt={caption} />
         <div className="card-body">
           <h1 className="card-title">{caption}</h1>
-          <ul class="list-group">
+          <p className="card-text">Comments:</p>
+          <ul className="list-group">
             {comments.map((comment) => {
-              return <li class="list-group-item">{comment}</li>;
+              return <li className="list-group-item">{comment}</li>;
             })}
           </ul>
         </div>
