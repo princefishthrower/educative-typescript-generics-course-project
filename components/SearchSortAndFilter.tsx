@@ -88,7 +88,7 @@ export function SearchSortAndFilter<T>(props: ISearchSortAndFilterProps<T>) {
               shouldBeCaseSensitive
             )
           )
-          .sort((a, b) => genericSort(a, b, sortProperty, isDescending))
+          .sort((a, b) => genericSort(a, b, sortProperty))
           .filter((a) => genericFilter(a, filterProperties))
           .map((a) => renderItem(a))}
     </>

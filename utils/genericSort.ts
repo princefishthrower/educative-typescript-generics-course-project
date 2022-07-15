@@ -1,17 +1,18 @@
+import { ISortProperty } from './../interfaces/ISortProperty';
+
 export const genericSort = <T>(
   a: T,
   b: T,
-  property: keyof T,
-  isDescending: boolean
+  sortProperty: ISortProperty<T>
 ) => {
   const result = () => {
-    if (a[property] > b[property]) {
+    if (a[sortProperty.property] > b[sortProperty.property]) {
       return 1;
     }
-    if (a[property] < b[property]) {
+    if (a[sortProperty.property] < b[sortProperty.property]) {
       return -1;
     }
     return 0;
   };
-  return isDescending ? result() * -1 : result();
+  return sortProperty.isDescending ? result() * -1 : result();
 };
