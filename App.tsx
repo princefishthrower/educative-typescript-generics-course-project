@@ -25,7 +25,7 @@ export default function App() {
           title="Blog Posts:"
           data={blogPosts}
           renderItem={(blogPost) => (
-            <BlogPostRenderer {...blogPost} key={"TODO"} />
+            <BlogPostRenderer {...blogPost} key={blogPost.id} />
           )}
           searchLabel="Search for blog posts..."
           searchProperties={["title"]}
@@ -44,7 +44,7 @@ export default function App() {
           renderItem={(imagePost) => (
             <ImagePostRenderer
               {...imagePost}
-              key={"TODO"}
+              key={blogPost.id}
             />
           )}
           searchLabel="Search for image posts..."

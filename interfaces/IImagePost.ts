@@ -1,4 +1,8 @@
-// TODO: complete me!
+// // Completed IImagePost interface
 export interface IImagePost {
-  caption: string
+  id: number;
+  imageUrl: string;
+  caption: string;
+  comments: Array<string>;
+  publishedAt: string;
 }

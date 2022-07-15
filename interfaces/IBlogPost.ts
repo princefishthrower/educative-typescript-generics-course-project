@@ -1,4 +1,8 @@
-// TODO: complete me!
+// Completed IBlogPost interface
 export interface IBlogPost {
-  title: string
+  id: number;
+  title: string;
+  description: string;
+  viewCount: number;
+  publishedAt: string;
 }
