@@ -8,6 +8,7 @@ import { Filters } from "./Filters";
 import { SearchInput } from "./SearchInput";
 import { Sorters } from "./Sorters";
 import { SortDirection } from "./SortDirection";
+import { ISortProperty } from "../interfaces/ISortProperty";
 
 export interface ISearchSortAndFilterProps<T> {
   title: string;
@@ -18,7 +19,7 @@ export interface ISearchSortAndFilterProps<T> {
   searchProperties: Array<keyof T>;
   shouldBeCaseSensitive: boolean;
   sortersLabel: string;
-  initialSortProperty: keyof T;
+  initialSortProperty: ISortProperty<T>; // new sort property type
   initialIsDescending: boolean;
   filtersLabel: string;
   initialFilterProperties: Array<IFilter<T>>;

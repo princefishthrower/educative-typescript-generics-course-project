@@ -31,7 +31,7 @@ export default function App() {
           searchProperties={["title", "description"]}
           shouldBeCaseSensitive={false}
           sortersLabel="Sort blog posts..."
-          initialSortProperty="title"
+          initialSortProperty={{property: "title", isDescending: false}}
           filtersLabel="Filter blog posts..."
           initialIsDescending={true}
           initialFilterProperties={[]}
@@ -51,7 +51,7 @@ export default function App() {
           searchProperties={["caption", "comments"]} // TODO in next task
           shouldBeCaseSensitive={false}
           sortersLabel="Sort image posts..."
-          initialSortProperty="caption"
+          initialSortProperty={{property: "caption", isDescending: false}}
           filtersLabel="Filter image posts..."
           initialIsDescending={true}
           initialFilterProperties={[]}
